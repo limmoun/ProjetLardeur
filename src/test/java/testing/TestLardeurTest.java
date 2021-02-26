@@ -21,16 +21,22 @@ import junit.framework.TestSuite;
 
 public class TestLardeurTest {
 WebDriver driver;
+private String BROWSER=System.getProperty("browser");
 
 @Before
 
 public void setup() {
 	//URL e=this.getClass().getClassLoader().getResource("driver.chromedriver.exe");
 	//File file = new File(((URL)Objects.requireNonNull(e)).getFile());
-			
+	if 	(BROWSER.equalsIgnoreCase("chrome"))	{
 	System.setProperty("webdriver.chrome.driver","src/main/resources/driver/chromedriver.exe");
 	driver = new ChromeDriver();
-}
+	}
+	else {
+		System.setProperty("webdriver.geckodriver.driver","src/main/resources/driver/geckodriver.exe");
+	}
+	}
+
 //@After
 public void teardown() {
 	driver.quit();
