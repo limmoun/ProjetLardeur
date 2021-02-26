@@ -32,8 +32,8 @@ public void setup() {
 	System.setProperty("webdriver.chrome.driver","src/main/resources/driver/chromedriver.exe");
 	driver = new ChromeDriver();
 	}
-	else {
-		System.setProperty("webdriver.geckodriver.driver","src/main/resources/driver/geckodriver.exe");
+	else if (BROWSER.equalsIgnoreCase("gecko"))	{
+			System.setProperty("webdriver.gecko.driver","src/main/resources/driver/geckodriver.exe");
 	}
 	}
 
